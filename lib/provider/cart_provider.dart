@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_community_challenge1/models/product.dart';
+import '../services/product.dart';
 
 class CartItem {
   final String id;

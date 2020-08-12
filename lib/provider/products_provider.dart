@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_community_challenge1/models/product.dart';
+import '../services/product.dart';
 
 class Products extends ChangeNotifier{
 

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
-import 'package:flutter_community_challenge1/provider/cart.dart';
+import 'package:flutter_community_challenge1/provider/cart_provider.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:flutter_community_challenge1/screens/cart_screen.dart';
-import '../models/product.dart';
+import '../services/product.dart';
 import '../widgets/custom_button.dart';
 class ProductInfoScreen extends StatelessWidget {
   static const route = 'productInfoScreen';

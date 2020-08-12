@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+
 import 'package:provider/provider.dart';
 import 'package:flutter_community_challenge1/screens/cart_screen.dart';
 import '../provider/modal_hud.dart';
-import '../models/product.dart';
+import '../services/product.dart';
 import 'product_info.dart';
-import '../services/json_product.dart';
+import '../services/json.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
+import '../services/products.dart';
 class HomeScreen extends StatelessWidget {
   static const route = 'homeScreen';
   @override
@@ -34,20 +36,22 @@ class HomeScreen extends StatelessWidget {
 //          child:
           Padding(
             padding: EdgeInsets.all(20),
-            child: FutureBuilder<List<Product>>(
+            child: FutureBuilder<Products>(
               future: _js.loadJson(),
               builder: (context,snapshot){
                 if(snapshot.hasData){
                   //mh.changeIsLoading(false);
                   return ListView.builder(
                     itemBuilder: (context, index) {
-                      return item( snapshot.data[index],index,context);
+                      return item( snapshot.data.products[index],index,context);
                     },
-                    itemCount: snapshot.data.length,
+                    itemCount: snapshot.data.products.length,
                   );
                 }else{
+                //  print(snapshot.data.products.length);
                 //  mh.changeIsLoading(true);
                   return Center(child:Text('Loading.......'));
+
                 }
               }
             )
@@ -56,12 +60,12 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Widget item(Product product,index,context) {
+  Widget item(Product p,index,context) {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 20),
       child: GestureDetector(
         onTap: (){
-          Navigator.pushNamed(context, ProductInfoScreen.route,arguments: product);
+          Navigator.pushNamed(context, ProductInfoScreen.route,arguments: p);
         },
         child: Row(children: <Widget>[
           Placeholder(
@@ -73,7 +77,7 @@ class HomeScreen extends StatelessWidget {
           ),
           Column(
             children: <Widget>[
-              Text('USD ${product.price}'),SizedBox(height: 20,),
+              Text('USD ${p.price}'),SizedBox(height: 20,),
               Opacity(opacity:0.6,child: Text('product# ${index}'))
             ],
           )

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_community_challenge1/provider/cart.dart';
+import 'package:flutter_community_challenge1/provider/cart_provider.dart';
 import '../widgets/cart_item.dart';
 import 'package:hexcolor/hexcolor.dart';
 import '../widgets/custom_button.dart';

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_community_challenge1/provider/cart.dart';
+import 'package:flutter_community_challenge1/provider/cart_provider.dart';
 import 'package:provider/provider.dart';
 
 class CartItemWidget extends StatelessWidget {
